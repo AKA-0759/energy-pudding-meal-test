@@ -1,0 +1,178 @@
+[
+  {
+    "itemId": "takeout-065",
+    "productName": "瑞幸标准美式（大杯冰）",
+    "pageUrl": "https://www.lkcoffee.com/products/americanos",
+    "assetUrl": "https://img.luckincoffeecdn.com/luckymediaadmin/2026/05/26/2d5a0991ec494824bce275529e6082e2.png",
+    "file": "assets/official-brand/luckin-standard-iced-americano.png",
+    "contentType": "image/png",
+    "byteLength": 100972,
+    "checkedAt": "2026-09-16",
+    "usage": "用户确认的内部非商业网页内测；保留原始文件，不修改品牌商品图"
+  },
+  {
+    "itemId": "takeout-066",
+    "productName": "瑞幸加浓美式（大杯冰）",
+    "pageUrl": "https://www.lkcoffee.com/products/americanos",
+    "assetUrl": "https://img.luckincoffeecdn.com/luckymediaadmin/2026/05/26/80e338ad3e6f49728043565ccb700416.png",
+    "file": "assets/official-brand/luckin-extra-iced-americano.png",
+    "contentType": "image/png",
+    "byteLength": 101052,
+    "checkedAt": "2026-09-16",
+    "usage": "用户确认的内部非商业网页内测；保留原始文件，不修改品牌商品图"
+  },
+  {
+    "itemId": "takeout-067",
+    "productName": "瑞幸茉莉花香拿铁（大杯冰）",
+    "pageUrl": "https://www.lkcoffee.com/products/lattes/jasmine-latte",
+    "assetUrl": "https://img.luckincoffeecdn.com/luckymediaadmin/2026/06/08/0de4a497f3ba47fab6239bac36840385.png",
+    "file": "assets/official-brand/luckin-jasmine-iced-latte.png",
+    "contentType": "image/png",
+    "byteLength": 55138,
+    "checkedAt": "2026-09-16",
+    "usage": "用户确认的内部非商业网页内测；保留原始文件，不修改品牌商品图"
+  },
+  {
+    "itemId": "takeout-068",
+    "productName": "瑞幸轻椰茉莉拿铁（大杯冰）",
+    "pageUrl": "https://www.lkcoffee.com/products/lattes/light-coconut-jasmine-latte",
+    "assetUrl": "https://img.luckincoffeecdn.com/luckymediaadmin/2026/06/08/1675c9d5b19b439bb824583de4dd209f.png",
+    "file": "assets/official-brand/luckin-light-coconut-jasmine-iced-latte.png",
+    "contentType": "image/png",
+    "byteLength": 36471,
+    "checkedAt": "2026-09-16",
+    "usage": "用户确认的内部非商业网页内测；保留原始文件，不修改品牌商品图"
+  },
+  {
+    "itemId": "takeout-069",
+    "productName": "瑞幸生椰拿铁（大杯冰）",
+    "pageUrl": "https://www.lkcoffee.com/products/lattes/coconut-latte",
+    "assetUrl": "https://img.luckincoffeecdn.com/luckymediaadmin/2026/05/26/3ccfa61293814670b0ef6bca9b828264.png",
+    "file": "assets/official-brand/luckin-coconut-iced-latte.png",
+    "contentType": "image/png",
+    "byteLength": 82377,
+    "checkedAt": "2026-09-16",
+    "usage": "用户确认的内部非商业网页内测；保留原始文件，不修改品牌商品图"
+  },
+  {
+    "itemId": "takeout-070",
+    "productName": "瑞幸冰吸生椰拿铁（大杯冰）",
+    "pageUrl": "https://www.lkcoffee.com/products/lattes/iced-coconut-latte",
+    "assetUrl": "https://img.luckincoffeecdn.com/luckymediaadmin/2026/06/08/6e1f8f0589dd48edadd5d510712735f6.png",
+    "file": "assets/official-brand/luckin-extra-ice-coconut-latte.png",
+    "contentType": "image/png",
+    "byteLength": 34648,
+    "checkedAt": "2026-09-16",
+    "usage": "用户确认的内部非商业网页内测；保留原始文件，不修改品牌商品图"
+  },
+  {
+    "itemId": "takeout-071",
+    "productName": "瑞幸柠C气泡美式（大杯冰）",
+    "pageUrl": "https://www.lkcoffee.com/products/americanos",
+    "assetUrl": "https://img.luckincoffeecdn.com/luckymediaadmin/2026/07/12/ecd1bd0597f94c31926ef930f37eb8d0.png",
+    "file": "assets/official-brand/luckin-lemon-sparkling-americano.png",
+    "contentType": "image/png",
+    "byteLength": 34309,
+    "checkedAt": "2026-09-16",
+    "usage": "用户确认的内部非商业网页内测；保留原始文件，不修改品牌商品图"
+  },
+  {
+    "itemId": "takeout-072",
+    "productName": "麦咖啡热美式（中杯）",
+    "pageUrl": "https://www.mcdonalds.com.cn/product/Hot-Americano",
+    "assetUrl": "https://officiaweb-afd.mcdonalds.com.cn/public/upload/attachment/2022/08/202208292209017033.png",
+    "file": "assets/official-brand/mccafe-hot-americano.png",
+    "contentType": "application/octet-stream",
+    "byteLength": 555065,
+    "checkedAt": "2026-09-16",
+    "usage": "用户确认的内部非商业网页内测；保留原始文件，不修改品牌商品图"
+  },
+  {
+    "itemId": "takeout-073",
+    "productName": "麦咖啡冰美式（中杯）",
+    "pageUrl": "https://www.mcdonalds.com.cn/product/Iced-Americano",
+    "assetUrl": "https://officiaweb-afd.mcdonalds.com.cn/public/upload/attachment/2022/08/202208292208383944.png",
+    "file": "assets/official-brand/mccafe-iced-americano.png",
+    "contentType": "application/octet-stream",
+    "byteLength": 606542,
+    "checkedAt": "2026-09-16",
+    "usage": "用户确认的内部非商业网页内测；保留原始文件，不修改品牌商品图"
+  },
+  {
+    "itemId": "takeout-074",
+    "productName": "麦咖啡热奶铁（中杯）",
+    "pageUrl": "https://www.mcdonalds.com.cn/product/Hot-Nai-Tie",
+    "assetUrl": "https://officiaweb-afd.mcdonalds.com.cn/public/upload/attachment/2022/08/202208292205408283.png",
+    "file": "assets/official-brand/mccafe-hot-latte.png",
+    "contentType": "application/octet-stream",
+    "byteLength": 246490,
+    "checkedAt": "2026-09-16",
+    "usage": "用户确认的内部非商业网页内测；保留原始文件，不修改品牌商品图"
+  },
+  {
+    "itemId": "takeout-075",
+    "productName": "麦咖啡冰奶铁（中杯）",
+    "pageUrl": "https://www.mcdonalds.com.cn/product/Iced-Nai-Tie",
+    "assetUrl": "https://officiaweb-afd.mcdonalds.com.cn/public/upload/attachment/2022/08/202208292204543004.png",
+    "file": "assets/official-brand/mccafe-iced-latte.png",
+    "contentType": "application/octet-stream",
+    "byteLength": 294328,
+    "checkedAt": "2026-09-16",
+    "usage": "用户确认的内部非商业网页内测；保留原始文件，不修改品牌商品图"
+  },
+  {
+    "itemId": "takeout-076",
+    "productName": "麦咖啡热燕麦奶铁（中杯）",
+    "pageUrl": "https://www.mcdonalds.com.cn/product/Hot-Oatly-Nai-Tie",
+    "assetUrl": "https://officiaweb-afd.mcdonalds.com.cn/public/upload/attachment/2022/08/202208292206368008.png",
+    "file": "assets/official-brand/mccafe-hot-oat-latte.png",
+    "contentType": "application/octet-stream",
+    "byteLength": 544155,
+    "checkedAt": "2026-09-16",
+    "usage": "用户确认的内部非商业网页内测；保留原始文件，不修改品牌商品图"
+  },
+  {
+    "itemId": "takeout-077",
+    "productName": "麦咖啡冰燕麦奶铁（中杯）",
+    "pageUrl": "https://www.mcdonalds.com.cn/product/Iced-Oatly-Nai-Tie",
+    "assetUrl": "https://officiaweb-afd.mcdonalds.com.cn/public/upload/attachment/2022/08/202208292206117637.png",
+    "file": "assets/official-brand/mccafe-iced-oat-latte.png",
+    "contentType": "application/octet-stream",
+    "byteLength": 278871,
+    "checkedAt": "2026-09-16",
+    "usage": "用户确认的内部非商业网页内测；保留原始文件，不修改品牌商品图"
+  },
+  {
+    "itemId": "takeout-078",
+    "productName": "麦咖啡卡布奇诺（中杯）",
+    "pageUrl": "https://www.mcdonalds.com.cn/product/Cappuccino",
+    "assetUrl": "https://officiaweb-afd.mcdonalds.com.cn/public/upload/attachment/2022/08/202208292210057378.png",
+    "file": "assets/official-brand/mccafe-cappuccino.png",
+    "contentType": "application/octet-stream",
+    "byteLength": 541349,
+    "checkedAt": "2026-09-16",
+    "usage": "用户确认的内部非商业网页内测；保留原始文件，不修改品牌商品图"
+  },
+  {
+    "itemId": "takeout-079",
+    "productName": "麦当劳锡兰红茶",
+    "pageUrl": "https://www.mcdonalds.com.cn/product/hot-tea",
+    "assetUrl": "https://officiaweb-afd.mcdonalds.com.cn/public/upload/attachment/2022/08/202208091546249996.png",
+    "file": "assets/official-brand/mcd-ceylon-tea.png",
+    "contentType": "application/octet-stream",
+    "byteLength": 109485,
+    "checkedAt": "2026-09-16",
+    "usage": "用户确认的内部非商业网页内测；保留原始文件，不修改品牌商品图"
+  },
+  {
+    "itemId": "takeout-080",
+    "productName": "麦当劳无糖可口可乐（中杯）",
+    "pageUrl": "https://www.mcdonalds.com.cn/product/Coca-Cola-Zero",
+    "assetUrl": "https://officiaweb-afd.mcdonalds.com.cn/public/upload/attachment/2022/08/202208091542266222.png",
+    "file": "assets/official-brand/mcd-zero-cola.png",
+    "contentType": "application/octet-stream",
+    "byteLength": 259417,
+    "checkedAt": "2026-09-16",
+    "usage": "用户确认的内部非商业网页内测；保留原始文件，不修改品牌商品图"
+  }
+]
