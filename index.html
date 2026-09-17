@@ -6,137 +6,62 @@
   <meta name="theme-color" content="#eaf8ff">
   <title>能量布丁｜今天吃什么</title>
   <link rel="icon" href="data:,">
-  <style>
-    @font-face{font-family:"Smiley Sans";src:url("assets/fonts/SmileySans-Oblique.ttf.woff2") format("woff2");font-display:swap;font-style:oblique;font-weight:400 900}
-    :root{
-      --ink:#103b7b;--ink-strong:#082d64;--muted:#4f678b;--paper:#fffefa;--sky:#dff5ff;--line:#d7eafa;
-      --takeout:#ffc83d;--takeout-deep:#b46b00;--home:#55d4ee;--home-deep:#087d9b;--snack:#67df7d;--snack-deep:#21823d;
-      --shadow:0 20px 46px rgba(46,105,145,.17);--soft-shadow:0 11px 24px rgba(46,105,145,.14);
-      font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
-    }
-    *{box-sizing:border-box}html,body{margin:0;min-height:100%}body{min-height:100vh;color:var(--ink);background:#d6f1ff;display:grid;place-items:center}button{font:inherit}
-    button:focus-visible,[role="button"]:focus-visible{outline:3px solid #fff;outline-offset:3px;box-shadow:0 0 0 6px var(--ink-strong)}
-    ::selection{color:#fff;background:var(--ink)}[hidden]{display:none!important}
-    .phone-shell{width:100%;max-width:440px;min-height:100vh;position:relative;overflow:hidden;background:linear-gradient(180deg,#edfaff 0,#dff5ff 28%,#f5fbff 100%)}
-    .app{min-height:100vh;display:flex;flex-direction:column;padding:0 14px max(13px,env(safe-area-inset-bottom))}
-
-    .hero{height:150px;flex:0 0 150px;position:relative;padding:max(21px,env(safe-area-inset-top)) 14px 0;overflow:hidden}
-    .hero::before{content:"";position:absolute;width:168px;height:168px;right:-38px;top:-63px;border-radius:46% 54% 63% 37%;background:#9af0c7;transform:rotate(-13deg)}
-    .hero::after{content:"";position:absolute;width:134px;height:105px;right:4px;bottom:4px;border-radius:50%;background:#b5ecff;filter:blur(.2px)}
-    .hero-copy{position:relative;z-index:2;padding-top:34px}.hero h1{margin:0;color:var(--ink-strong);font-family:"Smiley Sans","Microsoft YaHei",sans-serif;font-size:clamp(36px,10.2vw,45px);line-height:1;font-weight:900;letter-spacing:-.025em;-webkit-text-stroke:5px #fff;paint-order:stroke fill;filter:drop-shadow(0 7px 0 rgba(90,156,197,.22));white-space:nowrap}
-    .hero p{margin:12px 0 0;color:#315f9a;font-size:16px;font-weight:900;letter-spacing:.05em}
-    .hero-photo{width:108px;height:108px;position:absolute;z-index:3;right:2px;bottom:-2px;border:7px solid rgba(255,255,255,.86);border-radius:50%;object-fit:cover;box-shadow:0 12px 28px rgba(35,103,144,.21);transform:rotate(7deg)}
-    .spark{width:20px;height:20px;position:absolute;z-index:4;filter:drop-shadow(0 2px 4px rgba(72,137,173,.12))}.spark::before,.spark::after{content:"";position:absolute;left:50%;top:50%;border-radius:999px;background:#fff;transform:translate(-50%,-50%)}.spark::before{width:3px;height:20px}.spark::after{width:20px;height:3px}.spark.one{right:105px;top:39px}.spark.two{right:12px;top:28px;transform:scale(.68)}
-
-    .experience{flex:1;min-height:650px;display:flex;flex-direction:column;overflow:hidden;border-radius:18px;background:rgba(255,255,255,.95);box-shadow:var(--shadow)}
-    .curation{height:43px;display:flex;align-items:center;padding:0 19px;border-bottom:1px solid #e8f3fb;color:#477aa8;font-size:13px;font-weight:800}.curation svg{margin-right:7px}.curation strong{color:#3577b6}.curation span{margin-left:8px;padding-left:8px;border-left:1px solid #cfe5f8;font-weight:600}
-    .meal-tabs{height:91px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:0 9px;position:relative}
-    .meal-tabs::after{content:"";height:3px;position:absolute;left:42px;right:42px;bottom:12px;border-radius:3px;background:#d7ebfb}
-    .meal-tab{min-width:0;position:relative;z-index:1;padding:12px 1px 25px;border:0;color:#191f2a;background:transparent;cursor:pointer}.meal-tab strong,.meal-tab span{display:block}.meal-tab strong{font-size:17px;line-height:1.2;font-weight:800}.meal-tab span{margin-top:5px;color:#3e4e65;font-size:10px;white-space:nowrap;font-variant-numeric:tabular-nums}
-    .meal-tab::after{content:"";width:12px;height:12px;position:absolute;left:50%;bottom:7px;z-index:2;border:3px solid #fff;border-radius:50%;background:#bfe2fa;transform:translateX(-50%);transition:background .2s ease,box-shadow .2s ease,transform .2s ease}
-    .meal-tab[aria-selected="true"] strong{color:#0e2042;font-size:20px}.meal-tab[aria-selected="true"]::after{background:#62b7ef;box-shadow:0 0 0 4px #ccecff;transform:translateX(-50%) scale(1.13)}
-
-    .stage{min-height:420px;position:relative;isolation:isolate;margin:1px 14px 0;overflow:hidden;border-radius:14px;background:#6bd2cd;transition:background .3s ease}
-    .stage[data-mode="takeout"]{background:#ffd64d}.stage[data-mode="home"]{background:#64d8e9}.stage[data-mode="snack"]{background:#68df80}
-    .content-layer{height:100%;min-height:420px;position:relative;transition:opacity .16s ease}.stage.is-drawing .content-layer{opacity:.9}
-    .waiting-scene{position:absolute;inset:0;overflow:hidden;background:linear-gradient(145deg,#52c9c4,#9be5d6);opacity:1;visibility:visible;transition:opacity .28s cubic-bezier(.16,1,.3,1),visibility 0s linear .28s}
-    .waiting-scene::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.11),transparent 55%)}
-    .back-card{width:153px;height:202px;position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;border:5px solid rgba(255,255,255,.8);border-radius:10px;color:#3d99bd;background:#f8fdff;box-shadow:0 15px 25px rgba(11,97,115,.19);font-size:18px;font-weight:900;letter-spacing:.03em}
-    .back-card svg{margin-bottom:14px;color:#55b7cf}.back-card.a{left:-22px;top:32px;transform:rotate(-14deg)}.back-card.b{right:-21px;top:21px;transform:rotate(12deg)}.back-card.c{left:112px;top:144px;transform:rotate(-3deg)}.back-card.d{left:-24px;bottom:-72px;transform:rotate(12deg)}.back-card.e{right:-28px;bottom:-52px;transform:rotate(-12deg)}
-    .waiting-title{display:none}
-
-    .result-card{position:absolute;inset:0;padding:29px 14px 56px;opacity:0;pointer-events:none;transform:translateY(10px) scale(.975);transition:opacity .28s ease,transform .34s cubic-bezier(.16,1,.3,1)}
-    .stage.has-result .waiting-scene{opacity:0;visibility:hidden}.stage.has-result .result-card{opacity:1;pointer-events:auto;transform:none}
-    .result-ribbon{height:49px;min-width:185px;position:absolute;left:0;top:0;z-index:4;display:flex;align-items:center;padding:0 27px 2px 18px;border-radius:0 0 28px 0;color:var(--accent-deep);background:var(--accent);font-size:23px;font-weight:900;letter-spacing:.04em}
-    .result-paper{height:100%;position:relative;display:flex;flex-direction:column;align-items:center;padding:65px 18px 17px;border-radius:13px;background:#fffef4;box-shadow:0 15px 28px rgba(77,82,57,.12)}
-    .result-paper::after{content:"";width:0;height:0;position:absolute;left:63px;bottom:-19px;border-top:20px solid #fffef4;border-right:25px solid transparent}
-    .result-photo{width:164px;height:164px;flex:0 0 auto;border:9px solid #fff;border-radius:50%;object-fit:cover;box-shadow:0 12px 24px rgba(32,77,95,.18);background:#eef8fb}.result-photo.is-product{object-fit:contain;padding:7px;background:#fff}
-    .kcal-badge{width:72px;min-height:119px;position:absolute;right:13px;top:37px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px;border:2px solid #e7dcff;border-radius:36px;color:#5a5570;background:#fff;box-shadow:0 6px 14px rgba(92,72,130,.08);text-align:center;font-weight:900}.energy-status{display:block;margin-bottom:7px;padding:4px 7px;border-radius:10px;color:#fff;background:#684eaa;font-size:10px;line-height:1.1}.kcal-badge strong{font-size:23px;line-height:1;font-variant-numeric:tabular-nums}.kcal-badge strong.is-range{font-size:16px;letter-spacing:-.035em}.kcal-badge .energy-unit{margin-top:3px;font-size:11px;line-height:1.2}.result-title{margin:17px 0 0;max-width:96%;color:#25292f;font-size:24px;line-height:1.2;font-weight:900;text-align:center;overflow-wrap:anywhere}.result-title.is-long{font-size:20px}.result-tip{margin:8px 0 0;color:#a13c05;font-size:13px;line-height:1.45;font-weight:900;text-align:center}.result-reason{margin:10px 0 0;color:#565d5a;font-size:12px;line-height:1.55;text-align:center;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-    .result-actions{width:100%;display:flex;align-items:center;justify-content:flex-end;gap:7px;margin-top:auto;padding-top:10px}.detail-link,.meituan-link,.feedback-link{min-height:37px;border-radius:999px;font-size:12px;font-weight:900;cursor:pointer}.detail-link,.feedback-link{padding:7px 11px;border:1px solid rgba(16,59,123,.14);color:var(--ink);background:#fff}.meituan-link{padding:7px 13px;border:0;color:#382a00;background:#fff;box-shadow:0 5px 12px rgba(74,69,32,.12)}.feedback-link{color:#526a8b}
-
-    .draw-panel{padding:16px 13px 18px;background:#fff}.draw-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.draw-button{min-width:0;min-height:67px;border:0;border-radius:15px;color:var(--ink-strong);cursor:pointer;box-shadow:inset 0 -4px 0 rgba(0,0,0,.08),0 11px 20px rgba(30,91,114,.17);transition:transform .14s ease,filter .14s ease,box-shadow .14s ease}.draw-button strong{font-size:19px;letter-spacing:.03em}.draw-button[data-mode="takeout"]{background:linear-gradient(180deg,#ffc83c,#ff9f28)}.draw-button[data-mode="home"]{background:linear-gradient(180deg,#65d9ef,#30afe3)}.draw-button[data-mode="snack"]{background:linear-gradient(180deg,#67e67a,#30c671)}.draw-button:active{transform:translateY(3px);box-shadow:inset 0 -2px 0 rgba(0,0,0,.08),0 5px 10px rgba(30,91,114,.13)}.draw-button:disabled{cursor:wait;filter:saturate(.6);opacity:.72}
-    .brand-footer{padding:17px 0 2px;color:#28406d;text-align:center;font-size:20px;font-weight:900;font-style:italic;letter-spacing:-.03em}.brand-footer span{color:#ee2b78}
-
-    .toast{position:fixed;left:50%;bottom:calc(102px + env(safe-area-inset-bottom));z-index:160;max-width:min(340px,calc(100vw - 36px));padding:10px 14px;border-radius:11px;color:#fff;background:rgba(8,45,100,.96);font-size:12px;line-height:1.45;text-align:center;transform:translate(-50%,14px);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease}.toast.is-visible{opacity:1;transform:translate(-50%,0)}
+  <style>.toast{position:fixed;left:50%;bottom:calc(102px + env(safe-area-inset-bottom));z-index:160;max-width:min(340px,calc(100vw - 36px));padding:10px 14px;border-radius:11px;color:#fff;background:rgba(8,45,100,.96);font-size:12px;line-height:1.45;text-align:center;transform:translate(-50%,14px);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease}.toast.is-visible{opacity:1;transform:translate(-50%,0)}
     .overlay{position:fixed;inset:0;z-index:100;display:grid;place-items:end center;padding:18px;background:rgba(8,39,78,.48);opacity:0;pointer-events:none;transition:opacity .22s ease}.overlay.is-open{opacity:1;pointer-events:auto}.sheet{width:min(100%,400px);max-height:min(83vh,700px);overflow:auto;padding:21px;border-radius:16px;color:var(--ink);background:var(--paper);box-shadow:var(--shadow);transform:translateY(24px);transition:transform .28s cubic-bezier(.16,1,.3,1);scrollbar-color:#9fc8e3 transparent}.overlay.is-open .sheet{transform:none}.sheet-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}.sheet h2{margin:0;font-size:23px;line-height:1.25}.sheet-close{width:40px;height:40px;flex:0 0 auto;display:grid;place-items:center;border:1px solid #d9e7f2;border-radius:50%;color:var(--ink);background:#fff;cursor:pointer}.sheet-close svg{width:18px;height:18px}.sheet-body{margin-top:16px;color:var(--muted);font-size:13px;line-height:1.68}.sheet-body p{margin:0 0 12px}.advice-row{padding:11px 0;border-bottom:1px solid #e5eef5}.advice-row:last-child{border-bottom:0}.advice-label{display:block;color:var(--ink);font-size:12px;font-weight:900}.advice-value{display:block;margin-top:3px}.energy-source-links{display:flex;flex-wrap:wrap;gap:5px 10px;margin-top:6px}.energy-source-links a{color:#145992;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}.detail-disclaimer{margin-top:12px!important;padding:11px 12px;border-radius:12px;background:#edf8fe;font-size:11px}.blocking .sheet{box-shadow:inset 0 6px 0 #bd3434,var(--shadow)}.handoff-sheet{box-shadow:inset 0 6px 0 var(--takeout),var(--shadow)}
     .keyword-card{padding:14px;border-radius:13px;background:#f5f8fc}.keyword-label{display:block;color:#4f678b;font-size:10px;font-weight:800}.keyword-value{display:block;margin-top:4px;color:var(--ink);font-size:23px;line-height:1.25}.keyword-fallback{display:block;margin-top:5px;color:#4f678b;font-size:11px}.handoff-guide,.search-preview{margin-top:12px;padding:12px;border-radius:13px;background:#fff8dc}.handoff-guide strong{display:block;color:#6c4a00;font-size:12px}.handoff-guide p,.preview-location{margin:5px 0 0!important;color:#765f2d;font-size:11px}.sheet-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}.sheet-action{min-height:44px;padding:9px 12px;border:1px solid #d9e7f2;border-radius:11px;color:var(--ink);background:#fff;font-size:12px;font-weight:900;cursor:pointer}.sheet-action.primary{border-color:#e5bd32;background:#ffd54a}.preview-label{margin:0 0 8px!important;color:#7b5a08;font-size:10px;font-weight:900}.preview-search{min-height:40px;padding:10px 12px;border:1px solid #d9e7f2;border-radius:10px;color:var(--ink);background:#fff;font-weight:800}.feedback-field{display:block;margin-top:13px;color:var(--ink);font-size:12px;font-weight:900}.feedback-field select,.feedback-field textarea{width:100%;margin-top:6px;padding:11px 12px;border:1px solid #cfdfea;border-radius:11px;color:#263c5f;background:#fff;font:inherit;font-weight:500}.feedback-field textarea{min-height:88px;resize:vertical}.feedback-preview{margin-top:13px;padding:12px;border-radius:12px;background:#eff8fd;color:#486987;font-size:11px;white-space:pre-wrap}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-    @media(max-width:559px){body{display:block}.phone-shell{width:100%;max-width:none}}
-    @media(min-width:560px){body{padding:24px}.phone-shell{min-height:min(940px,calc(100vh - 48px));height:min(940px,calc(100vh - 48px));border-radius:30px;box-shadow:var(--shadow)}.app{min-height:100%;height:100%;overflow:auto}}
-    @media(max-height:820px){.hero{height:126px;flex-basis:126px}.hero-copy{padding-top:23px}.hero h1{font-size:36px}.hero p{margin-top:8px;font-size:14px}.hero-photo{width:91px;height:91px}.experience{min-height:610px}.curation{height:38px}.meal-tabs{height:78px}.meal-tab{padding-top:9px}.stage,.content-layer{min-height:379px}.result-card{padding-top:26px;padding-bottom:49px}.result-paper{padding-top:57px}.result-photo{width:145px;height:145px}.result-ribbon{height:43px;font-size:20px}.result-title{font-size:21px}.draw-panel{padding-top:13px;padding-bottom:15px}.draw-button{min-height:59px}.brand-footer{display:none}}
-    @media(max-width:360px){.app{padding-inline:8px}.hero{padding-inline:10px}.hero h1{font-size:33px}.hero-photo{width:84px;height:84px}.curation{padding-inline:13px;font-size:11px}.meal-tab strong{font-size:15px}.meal-tab[aria-selected="true"] strong{font-size:18px}.meal-tab span{font-size:9px}.stage{margin-inline:9px}.draw-panel{padding-inline:9px}.draw-actions{gap:8px}.draw-button strong{font-size:16px}.kcal-badge{right:7px;transform:scale(.9);transform-origin:top right}}
-    /* V5 — video-led mobile composition, compact first viewport, and full-card deal transition */
-    html{background:#cfeeff}.phone-shell{width:100%;max-width:444px;background:linear-gradient(180deg,#eaf8ff 0,#dff5ff 31%,#f6fbff 100%)}
-    .app{padding-inline:19px}.hero{height:174px;flex-basis:174px;padding-inline:10px}
-    .hero::before{width:190px;height:155px;right:-31px;top:13px;background:#8cebbd}.hero::after{width:145px;height:106px;right:0;bottom:8px;background:#b6edff}
-    .hero-copy{padding-top:54px}.hero h1{font-family:"Smiley Sans","Microsoft YaHei",sans-serif;font-size:clamp(38px,10.2vw,45px);font-style:normal;letter-spacing:-.04em;-webkit-text-stroke-width:6px}.hero p{margin:13px 0 0 2px;font-size:17px}
-    .hero-photo{width:166px;height:111px;right:-9px;bottom:2px;border:0;border-radius:0;box-shadow:none;object-fit:contain;object-position:center;transform:none}
-    .spark.one{right:139px;top:47px}.spark.two{right:14px;top:35px}
-    .experience{flex:0 0 auto;min-height:0;border-radius:17px;background:rgba(255,255,255,.97)}
-    .curation{height:45px;padding-inline:18px;color:#5c84ab}.meal-tabs{height:96px;padding-inline:8px}.meal-tab{padding-top:14px}.meal-tab strong{font-weight:900}
-    .stage{height:clamp(392px,49vh,480px);min-height:0;margin-inline:14px;border-radius:13px}.content-layer{height:100%;min-height:0}.stage.is-drawing .content-layer{opacity:1}
-    .waiting-scene{background:linear-gradient(145deg,#43c7c3,#91e2d7)}.waiting-scene::before{background:linear-gradient(128deg,rgba(255,255,255,.16),transparent 50%),linear-gradient(0deg,rgba(8,104,118,.1),transparent 44%)}
-    .back-card{width:146px;height:187px;border-radius:9px;background:rgba(248,253,255,.94);font-size:17px}.back-card svg{margin-bottom:12px}.back-card.a{left:-27px;top:24px;transform:rotate(-13deg)}.back-card.b{right:-25px;top:18px;transform:rotate(11deg)}.back-card.c{left:50%;top:127px;transform:translateX(-50%) rotate(-3deg)}.back-card.d{left:-20px;bottom:-61px;transform:rotate(11deg)}.back-card.e{right:-18px;bottom:-52px;transform:rotate(-11deg)}
-    .stage.is-drawing .back-card{transition:opacity .12s ease}.stage.is-drawing .back-card.is-source{opacity:0}
-    .result-card{padding:31px 14px 56px;transform:scale(.98);transition:opacity .28s ease,transform .3s cubic-bezier(.16,1,.3,1)}.stage.has-result .waiting-scene{opacity:0;visibility:hidden}.stage.has-result .result-card{transform:none}.stage.is-revealing .result-card{animation:resultReveal .32s cubic-bezier(.16,1,.3,1) both}
-    .result-paper{padding:66px 20px 16px}.result-photo{width:168px;height:168px}.result-title{color:#222831}.result-tip{color:#a13c05}.result-reason{color:#5b6064}
-    .deal-card{width:146px;height:187px;position:absolute;left:var(--deal-left,calc(50% - 73px));top:var(--deal-top,calc(50% - 94px));z-index:12;display:flex;flex-direction:column;align-items:center;justify-content:center;border:5px solid rgba(255,255,255,.96);border-radius:9px;color:#308fb4;background:#f8fdff;box-shadow:0 18px 34px rgba(14,82,108,.26);font-size:17px;font-weight:900;letter-spacing:.03em;opacity:0;pointer-events:none;transform:rotate(var(--deal-rotate,0deg))}
-    .deal-card svg{width:47px;height:47px;margin-bottom:9px;color:currentColor}.deal-card span{display:block}.deal-card[data-mode="takeout"]{color:#7d5100;background:#fffdf0}.deal-card[data-mode="home"]{color:#075f77;background:#f2fdff}.deal-card[data-mode="snack"]{color:#145f2f;background:#f6fff4}.stage.is-drawing .deal-card{animation:dealForward .62s cubic-bezier(.16,1,.3,1) both}
-    @keyframes dealForward{0%{opacity:1;left:var(--deal-left);top:var(--deal-top);transform:rotate(var(--deal-rotate)) scale(.98)}55%{opacity:1;left:calc(50% - 73px);top:calc(50% - 94px);transform:rotate(0deg) scale(1.08)}72%{opacity:1;left:calc(50% - 73px);top:calc(50% - 94px);transform:translateY(-3px) rotateY(0deg) scale(1.08)}100%{opacity:0;left:calc(50% - 73px);top:calc(50% - 94px);transform:translateY(4px) rotateY(82deg) scale(.98)}}
-    @keyframes resultReveal{0%{opacity:.18;transform:scale(.975);filter:saturate(.8)}100%{opacity:1;transform:none;filter:saturate(1)}}
-    .draw-panel{padding:18px 13px 20px}.draw-actions{gap:16px}.draw-button{min-height:70px;color:#082d64;text-shadow:none;box-shadow:inset 0 -5px 0 rgba(0,0,0,.08),0 11px 20px rgba(30,91,114,.18)}.draw-button strong{font-size:20px}.draw-button:disabled{filter:saturate(.78);opacity:.8}.brand-footer{padding-top:18px}
-    @media(min-width:560px){.phone-shell{min-height:min(960px,calc(100vh - 48px));height:min(960px,calc(100vh - 48px))}}
-    @media(max-height:900px){.hero{height:118px;flex-basis:118px}.hero-copy{padding-top:29px}.hero h1{font-size:32px}.hero p{margin-top:7px;font-size:13px}.hero-photo{width:120px;height:80px}.curation{height:40px}.meal-tabs{height:80px}.meal-tab{padding-top:9px}.stage{height:390px;min-height:0}.content-layer{min-height:0}.back-card{width:132px;height:164px}.back-card.c{top:119px}.result-card{padding:25px 12px 42px}.result-ribbon{height:40px;min-width:154px;padding-left:15px;font-size:18px}.result-paper{padding:40px 12px 10px}.result-photo{width:116px;height:116px;border-width:6px}.kcal-badge{right:7px;top:27px;transform:scale(.8);transform-origin:top right}.result-title{margin-top:8px;font-size:19px}.result-title.is-long{font-size:16px}.result-tip{margin-top:6px;font-size:12px;line-height:1.35}.result-reason{margin-top:6px;font-size:11px;line-height:1.42;-webkit-line-clamp:2}.result-actions{padding-top:4px}.detail-link,.meituan-link,.feedback-link{min-height:32px;padding:6px 9px;font-size:11px}.draw-panel{padding:12px 13px 14px}.draw-button{min-height:56px}.brand-footer{display:none}}
-    @media(max-width:360px){.app{padding-inline:9px}.hero{padding-inline:7px}.hero-photo{width:121px;height:81px;right:-6px}.stage{margin-inline:8px}.draw-actions{gap:9px}.draw-button strong{font-size:17px}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}.stage.is-drawing .content-layer{filter:none;transform:none}.stage.is-drawing .deal-card{opacity:0!important}}
-  </style>
+    </style>
+  <meta name="application-version" content="q5-mobile-art">
+  <link rel="preload" href="assets/reference-art.png" as="image">
+  <link rel="stylesheet" href="assets/fonts/meal-sans.css">
+  <link rel="stylesheet" href="design.css?v=q5-mobile-art">
 </head>
 <body>
   <div class="phone-shell"><main class="app">
-    <header class="hero">
+    <header class="hero"><div class="hero-wordmark" role="img" aria-label="ENERGY BUILDING"><svg class="brand-prefix" viewBox="480 300 220 88" aria-hidden="true"><defs><filter id="brandBlue" color-interpolation-filters="sRGB"><feFlood flood-color="#15488e"/><feComposite in2="SourceAlpha" operator="in"/></filter><filter id="brandTeal" color-interpolation-filters="sRGB"><feFlood flood-color="#2195b0"/><feComposite in2="SourceAlpha" operator="in"/></filter></defs><image href="assets/energy-building-logo-source.png" width="1492" height="439" filter="url(#brandBlue)"/></svg><svg class="brand-tail" viewBox="700 300 240 88" aria-hidden="true"><image href="assets/energy-building-logo-source.png" width="1492" height="439" filter="url(#brandBlue)"/></svg><svg class="brand-building" viewBox="955 300 537 88" aria-hidden="true"><image href="assets/energy-building-logo-source.png" width="1492" height="439" filter="url(#brandTeal)"/></svg></div>
       <div class="hero-copy"><h1>好身材 吃出来</h1><p>今天吃什么　随机抽一抽</p></div>
       <span class="spark one" aria-hidden="true"></span><span class="spark two" aria-hidden="true"></span>
-      <img class="hero-photo" src="assets/hero-bowl-v44.webp" alt="由多种日常食物组成的原创食物碗">
+      <img class="hero-photo" src="assets/hero-q-bowl.png" alt="" width="1290" height="1195" fetchpriority="high">
     </header>
     <section class="experience">
-      <div class="curation"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="6" stroke="currentColor" stroke-width="3"/><path d="m15 15 5 5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><strong>饮食搭配精选</strong><span>给你选择，也告诉你怎么吃</span></div>
-      <nav class="meal-tabs" aria-label="选择餐次">
-        <button class="meal-tab" type="button" data-meal="breakfast" aria-selected="false"><strong>早餐</strong><span>6:00–10:00</span></button>
-        <button class="meal-tab" type="button" data-meal="lunch" aria-selected="true"><strong>午餐</strong><span>10:00–13:00</span></button>
-        <button class="meal-tab" type="button" data-meal="tea" aria-selected="false"><strong>下午茶</strong><span>13:00–16:30</span></button>
-        <button class="meal-tab" type="button" data-meal="dinner" aria-selected="false"><strong>晚餐</strong><span>16:30–20:30</span></button>
+      <div class="curation"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 18h18M5 16a7 7 0 0 1 14 0M11 6h2M12 6V4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><strong>饮食搭配精选</strong></div>
+      <nav class="meal-tabs" role="tablist" aria-label="选择餐次">
+        <button class="meal-tab" role="tab" type="button" data-meal="breakfast" aria-selected="false"><strong>早餐</strong><span>6:00–10:00</span></button>
+        <button class="meal-tab" role="tab" type="button" data-meal="lunch" aria-selected="true"><strong>午餐</strong><span>10:00–13:00</span></button>
+        <button class="meal-tab" role="tab" type="button" data-meal="tea" aria-selected="false"><strong>下午茶</strong><span>13:00–16:30</span></button>
+        <button class="meal-tab" role="tab" type="button" data-meal="dinner" aria-selected="false"><strong>晚餐</strong><span>16:30–20:30</span></button>
       </nav>
       <section class="stage" id="stage" data-mode="home" aria-labelledby="drawTitle">
         <h2 class="sr-only" id="drawTitle">抽取今天的食物</h2>
         <div class="content-layer">
           <div class="waiting-scene" id="waitingScene">
-            <div class="back-card a" data-mode="home" aria-hidden="true"><svg width="55" height="55" viewBox="0 0 64 64" fill="none"><path d="M10 38h44c-2 11-9 17-22 17S12 49 10 38Z" stroke="currentColor" stroke-width="3"/><path d="M18 38c2-10 8-16 14-16s12 6 14 16M26 16c0-4 3-7 7-8m8 10c3 3 4 7 2 11" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>自制推荐</div>
-            <div class="back-card b" data-mode="takeout" aria-hidden="true"><svg width="55" height="55" viewBox="0 0 64 64" fill="none"><path d="M12 23h40v28H12z" stroke="currentColor" stroke-width="3"/><path d="M18 23v-7h28v7M12 35h40" stroke="currentColor" stroke-width="3"/></svg>外卖推荐</div>
-            <div class="back-card c" data-mode="snack" aria-hidden="true"><svg width="55" height="55" viewBox="0 0 64 64" fill="none"><path d="M18 15h28l-2 35H20z" stroke="currentColor" stroke-width="3"/><path d="M22 15c1-7 6-10 10-10s9 3 10 10M26 29h12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>零食推荐</div>
-            <div class="back-card d" data-mode="home" aria-hidden="true">自制推荐</div><div class="back-card e" data-mode="takeout" aria-hidden="true">外卖推荐</div>
-            <p class="waiting-title" id="frontTitle">午餐吃什么？</p>
-          </div>
-          <article class="result-card" id="resultCard" aria-live="polite" aria-hidden="true" inert>
+  <img class="waiting-art" src="assets/waiting-collection.png" alt="" width="863" height="1823" fetchpriority="high">
+  <div class="back-card a" data-mode="home" aria-hidden="true">自制推荐</div>
+  <div class="back-card b" data-mode="takeout" aria-hidden="true">外卖推荐</div>
+  <div class="back-card c" data-mode="snack" aria-hidden="true">零食推荐</div>
+  <p class="sr-only" id="frontTitle">午餐吃什么？</p><p class="waiting-title waiting-caption">选一种，抽一张</p>
+</div>
+<article class="result-card" id="resultCard" aria-live="polite" aria-hidden="true" inert>
             <div class="result-ribbon" id="modeChip">自制推荐</div>
             <div class="result-paper">
-              <img class="result-photo" id="resultPhoto" src="assets/original-v2/home-02-chicken-grain.jpg" alt="">
-              <div class="kcal-badge"><span class="energy-status" id="energyStatus">估算范围</span><strong id="kcalNumber">420–620</strong><span class="energy-unit">kcal/份</span></div>
+              <div class="result-photo-frame"><img class="result-photo" id="resultPhoto" src="assets/original-v2/home-02-chicken-grain.jpg" alt=""></div>
               <h3 class="result-title" id="resultTitle">香煎鸡胸杂粮饭</h3>
+<div class="kcal-badge"><span class="energy-status" id="energyStatus">估算范围</span><span class="energy-value"><strong id="kcalNumber">420–620</strong><span class="energy-unit">kcal/份</span></span></div>
               <p class="result-tip" id="resultTip">先吃菜和蛋白质，主食留到后面</p>
               <p class="result-reason" id="resultReason">肉、菜和主食能在一餐里配齐，吃到七八分饱即可。</p>
               <div class="result-actions"><button class="feedback-link" id="feedbackButton" type="button">反馈</button><button class="detail-link" id="detailLink" type="button">怎么吃 · 吃多少</button><button class="meituan-link" id="meituanLink" type="button" hidden>去美团搜</button></div>
             </div>
           </article>
         </div>
-        <div class="deal-card" id="dealCard" aria-hidden="true"></div>
+        <div class="motion-deck" id="motionDeck" aria-hidden="true"><div class="motion-card"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h18c-1 5-4 8-9 8s-8-3-9-8ZM8 9V5m4 4V3m4 6V5"/></svg><span>自制推荐</span></div><div class="motion-card"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v13H4zM8 8V5a4 4 0 0 1 8 0v3M4 13h16"/></svg><span>外卖推荐</span></div><div class="motion-card"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 14H7L6 7Zm2 0a4 4 0 0 1 8 0M10 12h4"/></svg><span>零食推荐</span></div><p class="motion-note">好好吃饭，也可以有点惊喜</p></div><div class="deal-card" id="dealCard" aria-hidden="true"></div>
       </section>
       <section class="draw-panel" aria-label="选择抽取方式"><div class="draw-actions">
-        <button class="draw-button" type="button" data-mode="takeout"><strong>抽外卖</strong></button>
-        <button class="draw-button" type="button" data-mode="home"><strong>抽自制</strong></button>
-        <button class="draw-button" type="button" data-mode="snack"><strong>抽零食</strong></button>
+        <button class="draw-button" type="button" data-mode="takeout" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h16v13H4zM8 8V5a4 4 0 0 1 8 0v3M4 13h16"/></svg><strong>抽外卖</strong></button>
+        <button class="draw-button" type="button" data-mode="home" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13h18c-1 5-4 8-9 8s-8-3-9-8ZM8 9V5m4 4V3m4 6V5"/></svg><strong>抽自制</strong></button>
+        <button class="draw-button" type="button" data-mode="snack" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 14H7L6 7Zm2 0a4 4 0 0 1 8 0M10 12h4"/></svg><strong>抽零食</strong></button>
       </div></section>
     </section>
-    <footer class="brand-footer" aria-label="能量布丁">energy <span>pudding</span></footer>
+
   </main></div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -145,6 +70,7 @@
   <div class="overlay" id="feedbackOverlay" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle" aria-hidden="true" inert><section class="sheet"><div class="sheet-head"><h2 id="feedbackTitle">这张推荐哪里不对？</h2><button class="sheet-close" type="button" data-close="feedbackOverlay" aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></button></div><div class="sheet-body"><p>只生成一段反馈文字供你复制，不上传资料，也不会收集姓名、手机号、位置或健康信息。</p><label class="feedback-field">问题类型<select id="feedbackType"><option>图片与名称不一致</option><option>建议与菜名不一致</option><option>热量或份量有疑问</option><option>页面或动画异常</option><option>其他问题</option></select></label><label class="feedback-field">补充说明（可不填）<textarea id="feedbackText" maxlength="160" placeholder="例如：图片像水饺，但名称写的是锅贴"></textarea></label><div class="feedback-preview" id="feedbackPreview"></div><div class="sheet-actions"><button class="sheet-action primary" id="copyFeedback" type="button">复制反馈文字</button><button class="sheet-action" type="button" data-close="feedbackOverlay">取消</button></div></div></section></div>
   <div class="overlay blocking" id="blockOverlay" role="alertdialog" aria-modal="true" aria-labelledby="blockTitle" aria-hidden="true" inert><section class="sheet"><div class="sheet-head"><h2 id="blockTitle">暂时不能抽取</h2><button class="sheet-close" type="button" data-close="blockOverlay" aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></button></div><div class="sheet-body"><p id="blockMessage"></p><p>确认完成后再回来抽，避免把不合适的食物推荐给你。</p></div></section></div>
 
+  <script src="assets/food-framing.js"></script>
   <script src="meal-data.js"></script>
   <script>
   (()=>{
@@ -168,42 +94,111 @@
     let current=null,currentMode=null,busy=false,timer=null,lastFocus=null,drawTimer=null,revealTimer=null;
     const bags=new Map(),lastPicked=new Map();
     function setInert(node,value){if(value)node.setAttribute('inert','');else node.removeAttribute('inert')}
-    function syncMeal(){document.querySelectorAll('.meal-tab').forEach(tab=>tab.setAttribute('aria-selected',String(tab.dataset.meal===meal)));e.front.textContent=`${mealNames[meal]}吃什么？`}
+    function syncMeal(){document.querySelectorAll('.meal-tab').forEach(tab=>{const selected=tab.dataset.meal===meal;tab.setAttribute('aria-selected',String(selected));tab.tabIndex=selected?0:-1;tab.id='meal-'+tab.dataset.meal;tab.setAttribute('aria-controls','stage')});e.stage.setAttribute('role','tabpanel');e.stage.setAttribute('aria-labelledby','meal-'+meal);e.front.textContent=`${mealNames[meal]}吃什么？`}
     function showToast(message){clearTimeout(timer);e.toast.textContent=message;e.toast.classList.add('is-visible');timer=setTimeout(()=>e.toast.classList.remove('is-visible'),2300)}
     function overlayFocusables(overlay){return [...overlay.querySelectorAll('button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(node=>!node.hidden)}
-    function openOverlay(overlay){lastFocus=document.activeElement;setInert(e.shell,true);setInert(overlay,false);overlay.classList.add('is-open');overlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(()=>overlayFocusables(overlay)[0]?.focus(),30)}
-    function closeOverlay(overlay){overlay.classList.remove('is-open');overlay.setAttribute('aria-hidden','true');setInert(overlay,true);if(!document.querySelector('.overlay.is-open')){setInert(e.shell,false);document.body.style.overflow=''}lastFocus?.focus?.()}
+    function openOverlay(overlay){lastFocus=overlay===e.detailOverlay?e.detail:overlay===e.meituan?e.meituanLink:overlay===e.feedbackOverlay?e.feedbackButton:document.activeElement;setInert(e.shell,true);setInert(overlay,false);overlay.classList.add('is-open');overlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(()=>overlayFocusables(overlay)[0]?.focus(),30)}
+    function closeOverlay(overlay){overlay.classList.remove('is-open');overlay.setAttribute('aria-hidden','true');setInert(overlay,true);if(!document.querySelector('.overlay.is-open')){setInert(e.shell,false);document.body.style.overflow=''}const returnFocus=lastFocus;requestAnimationFrame(()=>returnFocus?.focus?.({preventScroll:true}))}
     function guard(){if(profile.restrictionStatus!=='known'){e.blockT.textContent='饮食限制还没确认';e.blockM.textContent='请先联系教练更新过敏与忌口信息。';openOverlay(e.block);return false}if(profile.profileStatus!=='current'){e.blockT.textContent='会员资料需要更新';e.blockM.textContent='当前目标或身体资料已过期，请先联系教练确认。';openOverlay(e.block);return false}if(!items.length){showToast('菜品库没有载入，请刷新页面后再试');return false}return true}
     function eligible(mode){if(testCase==='empty')return[];return items.filter(item=>item.modes.includes(mode)&&item.meals.includes(meal)&&!item.allergens.some(allergen=>profile.allergies.includes(allergen)))}
     function shuffled(values){const copy=[...values];for(let index=copy.length-1;index>0;index--){const target=Math.floor(Math.random()*(index+1));[copy[index],copy[target]]=[copy[target],copy[index]]}return copy}
     function pick(mode){const candidates=eligible(mode);if(!candidates.length)return null;const key=`${meal}:${mode}:${profile.allergies.join(',')}`;const allowedIds=new Set(candidates.map(item=>item.id));let bag=(bags.get(key)||[]).filter(id=>allowedIds.has(id));if(!bag.length){bag=shuffled(candidates.map(item=>item.id));const previous=lastPicked.get(key);if(previous&&bag.length>1&&bag[bag.length-1]===previous)[bag[0],bag[bag.length-1]]=[bag[bag.length-1],bag[0]]}const id=bag.pop();bags.set(key,bag);lastPicked.set(key,id);return candidates.find(item=>item.id===id)||candidates[0]}
     function searchTerms(item){return{primary:item.search.primary.trim(),fallback:(item.search.fallback||'').trim()}}
     function energyOf(item){return item.energy||{display:`约${item.kcal}`,label:'常见份量估算',basis:'按常见食材和建议份量估算。',sourceKeys:[],method:'legacy_estimate'}}
-    function loadPhoto(item){const target=testCase==='broken-image'?'assets/not-found.jpg':item.photo;return new Promise(resolve=>{const image=new Image();let settled=false;const finish=value=>{if(settled)return;settled=true;clearTimeout(timeout);resolve(value)};const timeout=setTimeout(()=>finish('assets/image-fallback.svg'),1400);image.onload=()=>finish(target);image.onerror=()=>finish('assets/image-fallback.svg');image.src=target})}
-    function render(item,mode,photo){const energy=energyOf(item);e.stage.dataset.mode=mode;e.result.dataset.itemId=item.id;e.photo.dataset.itemId=item.id;e.photo.src=photo;e.photo.alt=photo.endsWith('image-fallback.svg')?`${item.name}图片暂不可用`:`${item.name}图片`;e.photo.classList.toggle('is-product',item.imageSource==='official-brand-site'&&!photo.endsWith('image-fallback.svg'));e.mode.textContent=modeNames[mode];e.kcal.textContent=energy.display;e.kcal.classList.toggle('is-range',energy.valueType==='range'||String(energy.display).length>5);e.energyStatus.textContent=energy.method==='official_product_page'?'品牌官方':energy.valueType==='range'?'估算范围':'份量估算';e.title.textContent=item.name;e.title.classList.toggle('is-long',item.name.length>12);e.reason.textContent=item.reason;e.tip.textContent=item.quickTip;e.meituanLink.hidden=mode!=='takeout';e.detail.hidden=false;e.feedbackButton.hidden=false;e.meituanLink.textContent='去美团搜';e.result.setAttribute('aria-label',`${mealNames[meal]}推荐：${item.name}，${energy.label}${energy.display}千卡`)}
+    function loadPhoto(item){const target=testCase==='broken-image'?'assets/not-found.jpg':item.photo;return new Promise(resolve=>{const image=new Image();let settled=false;const finish=value=>{if(settled)return;settled=true;clearTimeout(timeout);resolve(value)};const timeout=setTimeout(()=>finish('assets/image-fallback.svg'),8000);image.onload=()=>finish(target);image.onerror=()=>finish('assets/image-fallback.svg');image.src=target})}
+    function render(item,mode,photo){const energy=energyOf(item);e.stage.dataset.mode=mode;e.result.dataset.itemId=item.id;e.photo.dataset.itemId=item.id;e.photo.src=photo;e.photo.alt=photo.endsWith('image-fallback.svg')?`${item.name}图片暂不可用`:`${item.name}图片`;e.photo.classList.toggle('is-product',item.imageSource==='official-brand-site'&&!photo.endsWith('image-fallback.svg'));e.mode.textContent=modeNames[mode];e.kcal.textContent=energy.display;e.kcal.classList.toggle('is-range',energy.valueType==='range'||String(energy.display).length>5);e.energyStatus.textContent=energy.method==='official_product_page'?'品牌官方':energy.valueType==='range'?'估算范围':'份量估算';e.title.replaceChildren();const suffix=item.name.match(/^(.+?)(（[^）]+）)$/);if(suffix){const name=document.createElement("span");name.textContent=suffix[1];const variant=document.createElement("span");variant.className="result-variant";variant.textContent=suffix[2];e.title.append(name,variant)}else{e.title.textContent=item.name;}e.title.classList.toggle('is-long',item.name.length>12);e.reason.textContent=item.reason;e.tip.replaceChildren();let tipEnd=0;for(const token of item.quickTip.matchAll(/(?:本次约)?\d+\s*kcal/gi)){e.tip.append(document.createTextNode(item.quickTip.slice(tipEnd,token.index)));const span=document.createElement('span');span.className='no-break';span.textContent=token[0];e.tip.append(span);tipEnd=token.index+token[0].length}e.tip.append(document.createTextNode(item.quickTip.slice(tipEnd)));e.meituanLink.hidden=mode!=='takeout';e.detail.hidden=false;e.feedbackButton.hidden=false;e.meituanLink.textContent='去美团搜';e.result.setAttribute('aria-label',`${mealNames[meal]}推荐：${item.name}，${energy.label}${energy.display}千卡`)}
+    function framePhoto(){
+      const frame=e.photo.parentElement;
+      const entry=window.MEAL_IMAGE_FRAMING?.[e.photo.getAttribute('src')];
+      frame.classList.toggle('is-trimmed',Boolean(entry));
+      if(!entry)return;
+      const [w,h,x,y,bw,bh]=entry;
+      frame.style.setProperty('--subject-aspect',String(bw/bh));
+      frame.style.setProperty('--image-width',`${w/bw*100}%`);
+      frame.style.setProperty('--image-height',`${h/bh*100}%`);
+      frame.style.setProperty('--image-x',`${-x/w*100}%`);
+      frame.style.setProperty('--image-y',`${-y/h*100}%`);
+    }
+    new MutationObserver(framePhoto).observe(e.photo,{attributes:true,attributeFilter:['src']});
+    framePhoto();
+    // Approved raster artwork stays byte-identical. SVG viewports display only
+    // fixed decoration; native headings/buttons remain the accessible fallback.
+    const artSource='assets/reference-art.png';
+    function artRegion(target,box,className='reference-art'){
+      const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+      svg.setAttribute('viewBox',box);svg.setAttribute('aria-hidden','true');
+      svg.setAttribute('focusable','false');svg.setAttribute('class',className);
+      const image=document.createElementNS('http://www.w3.org/2000/svg','image');
+      image.setAttribute('href',artSource);image.setAttribute('width','853');image.setAttribute('height','1844');
+      const [x,y,width,height]=box.split(' ');const clipId='art-clip-'+document.querySelectorAll('.reference-art').length;
+      const clip=document.createElementNS('http://www.w3.org/2000/svg','clipPath');clip.id=clipId;
+      const rect=document.createElementNS('http://www.w3.org/2000/svg','rect');
+      for(const [key,value] of Object.entries({x,y,width,height}))rect.setAttribute(key,value);
+      clip.append(rect);svg.append(clip);image.setAttribute('clip-path',`url(#${clipId})`);
+      svg.append(image);target.append(svg);
+    }
+    // Preserve the continuous approved header. Cover only its generated logo
+    // with the sampled sky surface; the original logo renders above this layer.
+    artRegion(document.querySelector('.hero'),'17 230 402 224','reference-art hero-reference');
+    const headerArt=document.querySelector('.hero-reference');
+    const sky=document.createElementNS('http://www.w3.org/2000/svg','linearGradient');sky.id='brand-sky';
+    for(const [offset,color] of [['0%','#f0f9fe'],['40%','#eff9fe'],['100%','#d4edfe']]){
+      const stop=document.createElementNS('http://www.w3.org/2000/svg','stop');stop.setAttribute('offset',offset);stop.setAttribute('stop-color',color);sky.append(stop);
+    }
+    const logoCover=document.createElementNS('http://www.w3.org/2000/svg','rect');
+    for(const [key,value] of Object.entries({x:'37',y:'245',width:'200',height:'52',fill:'url(#brand-sky)'}))logoCover.setAttribute(key,value);
+    headerArt.append(sky,logoCover);
+    artRegion(document.querySelector('.curation'),'40 468 154 32');
+    artRegion(document.querySelector('.waiting-scene'),'30 686 376 536');
+    const waitingArt=document.querySelector('.waiting-scene>.reference-art');
+    const fitWaitingArt=()=>{
+      const box=document.querySelector('.waiting-scene').clientHeight<300?'30 800 376 385':'30 686 376 536';
+      waitingArt.setAttribute('viewBox',box);
+      const rect=waitingArt.querySelector('clipPath rect');
+      box.split(' ').forEach((v,i)=>rect.setAttribute(['x','y','width','height'][i],v));
+    };
+    new ResizeObserver(fitWaitingArt).observe(document.querySelector('.waiting-scene'));fitWaitingArt();
+    [['takeout','37 1446 111 86'],['home','163 1446 111 86'],['snack','290 1446 111 86']].forEach(([mode,box])=>{
+      const button=document.querySelector(`.draw-button[data-mode="${mode}"]`);artRegion(button,box);
+      button.querySelector('.reference-art').setAttribute('preserveAspectRatio','xMidYMid slice');
+    });
+    const artwork=new Image();artwork.onload=()=>document.documentElement.classList.add('art-ready');
+    artwork.onerror=()=>document.documentElement.classList.add('art-unavailable');artwork.src=artSource;
     function setBusy(value){busy=value;document.querySelectorAll('.draw-button,.meal-tab').forEach(button=>button.disabled=value);e.stage.setAttribute('aria-busy',String(value))}
-    function draw(mode){
+    async function draw(mode){
       if(busy||!guard())return;
-      const item=pick(mode);
-      if(!item){showToast('当前餐次没有合适候选，请换一种方式');return}
-      clearTimeout(drawTimer);clearTimeout(revealTimer);setBusy(true);const photoReady=loadPhoto(item);
-      const source=document.querySelector(`.back-card[data-mode="${mode}"]`);
-      e.deal.innerHTML=`${source?.querySelector('svg')?.outerHTML||''}<span>${modeNames[mode]}</span>`;
-      e.deal.dataset.mode=mode;
-      e.stage.classList.remove('has-result','is-drawing','is-revealing');
-      setInert(e.result,true);e.result.setAttribute('aria-hidden','true');
-      document.querySelectorAll('.back-card.is-source').forEach(card=>card.classList.remove('is-source'));
-      if(source){source.classList.add('is-source');e.deal.style.setProperty('--deal-left',`${source.offsetLeft}px`);e.deal.style.setProperty('--deal-top',`${source.offsetTop}px`);e.deal.style.setProperty('--deal-rotate',getComputedStyle(source).transform==='none'?'0deg':mode==='takeout'?'11deg':mode==='home'?'-13deg':'-3deg')}
-      void e.deal.offsetWidth;
-      e.stage.classList.add('is-drawing');
+      const item=pick(mode);if(!item){showToast('当前餐次没有合适候选，请换一种方式');return}
+      setBusy(true);
       const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-      drawTimer=setTimeout(async()=>{
-        const photo=await photoReady;
-        current=item;currentMode=mode;render(item,mode,photo);
-        e.stage.classList.add('has-result','is-revealing');
-        setInert(e.result,false);e.result.setAttribute('aria-hidden','false');
-        revealTimer=setTimeout(()=>{e.stage.classList.remove('is-drawing','is-revealing');document.querySelectorAll('.back-card.is-source').forEach(card=>card.classList.remove('is-source'));setBusy(false)},reduced?40:310);
-      },reduced?20:380);
+      const duration=current?600:900;
+      // Keep the current food and its text together until the next photo is ready.
+      const loadingNotice=setTimeout(()=>showToast('正在准备图片，请稍等'),900);
+      const photo=await loadPhoto(item);
+      clearTimeout(loadingNotice);clearTimeout(timer);e.toast.classList.remove('is-visible');
+      setInert(e.result,true);
+      const deck=$('motionDeck');const cards=[...deck.querySelectorAll('.motion-card')];
+      const chosen=['home','takeout','snack'].indexOf(mode);
+      const positions=[0,1,2];[positions[chosen],positions[1]]=[positions[1],positions[chosen]];
+      cards.forEach((card,index)=>{card.dataset.mode=['home','takeout','snack'][index];card.style.zIndex=positions[index]===1?'3':'1'});
+      const stageTop=e.stage.getBoundingClientRect().top;
+      if(stageTop>24)window.scrollTo({top:window.scrollY+stageTop-20,behavior:reduced?'instant':'smooth'});
+      e.stage.classList.add('is-drawing');
+      const animations=reduced?[]:cards.map((card,index)=>{
+        const position=positions[index];const direction=position-1;const offset=direction*127;
+        return card.animate([
+          {transform:'translateX('+ (offset+180)+'px) rotate('+ (direction*11)+'deg) scale(.86)',opacity:0},
+          {transform:'translateX('+ (offset-40)+'px) rotate('+ (direction*8)+'deg) scale(.96)',opacity:1,offset:.38},
+          {transform:'translateX('+offset+'px) rotate('+ (direction*7)+'deg) scale('+ (position===1?1.06:.86)+')',opacity:1,offset:.76},
+          {transform:'translateX('+ (direction*165)+'px) rotate('+ (direction*12)+'deg) scale('+ (position===1?1.13:.8)+')',opacity:position===1?1:.4}
+        ],{duration:duration-180,easing:'cubic-bezier(.2,.75,.25,1)',fill:'forwards'});
+      });
+      await Promise.all(animations.map(a=>a.finished.catch(()=>{})));
+      current=item;currentMode=mode;render(item,mode,photo);
+      document.querySelectorAll('.draw-button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode===mode)));
+      e.stage.classList.remove('is-drawing');e.stage.classList.add('has-result','is-revealing');
+      setInert(e.result,false);e.result.setAttribute('aria-hidden','false');
+      await new Promise(resolve=>setTimeout(resolve,reduced?0:180));
+      animations.forEach(a=>a.cancel());e.stage.classList.remove('is-revealing');setBusy(false);
     }
     function clearBody(node){while(node.firstChild)node.removeChild(node.firstChild)}
     function addParagraph(parent,text,className=''){const p=document.createElement('p');if(className)p.className=className;p.textContent=text;parent.appendChild(p)}
@@ -219,7 +214,8 @@
     function refreshFeedback(){e.feedbackPreview.textContent=feedbackMessage()}
     function feedback(){if(!current)return;refreshFeedback();openOverlay(e.feedbackOverlay)}
     async function copyFeedback(){const message=feedbackMessage();const copied=await copyText(message);showToast(copied?'反馈文字已复制，可以发给测试负责人':'请长按反馈文字手动复制')}
-    document.querySelectorAll('.meal-tab').forEach(tab=>tab.addEventListener('click',()=>{if(busy)return;meal=tab.dataset.meal;current=null;currentMode=null;e.stage.classList.remove('has-result');setInert(e.result,true);e.result.setAttribute('aria-hidden','true');e.stage.dataset.mode='home';syncMeal()}));
+    document.querySelectorAll('.meal-tab').forEach(tab=>tab.addEventListener('click',()=>{if(busy)return;meal=tab.dataset.meal;current=null;currentMode=null;e.stage.classList.remove('has-result');setInert(e.result,true);e.result.setAttribute('aria-hidden','true');e.stage.dataset.mode='home';document.querySelectorAll('.draw-button').forEach(b=>b.setAttribute('aria-pressed','false'));syncMeal()}));
+    document.querySelector('.meal-tabs').addEventListener('keydown',event=>{if(busy||!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const tabs=[...document.querySelectorAll('.meal-tab')];const active=tabs.findIndex(tab=>tab.dataset.meal===meal);const index=event.key==='Home'?0:event.key==='End'?3:(active+(event.key==='ArrowRight'?1:3))%4;tabs[index].click();tabs[index].focus()});
     document.querySelectorAll('.draw-button').forEach(button=>button.addEventListener('click',()=>draw(button.dataset.mode)));
     e.detail.addEventListener('click',detail);e.meituanLink.addEventListener('click',meituan);e.feedbackButton.addEventListener('click',feedback);e.copyKeyword.addEventListener('click',copyKeyword);e.copyOrderNote.addEventListener('click',copyOrderNote);e.openMeituan.addEventListener('click',openMeituan);e.feedbackType.addEventListener('change',refreshFeedback);e.feedbackText.addEventListener('input',refreshFeedback);e.copyFeedback.addEventListener('click',copyFeedback);
     e.previewHandoff.addEventListener('click',()=>{e.searchPreview.hidden=false;e.previewHandoff.textContent='说明已展开'});
