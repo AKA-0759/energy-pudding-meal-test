@@ -11,10 +11,10 @@
     .keyword-card{padding:14px;border-radius:13px;background:#f5f8fc}.keyword-label{display:block;color:#4f678b;font-size:10px;font-weight:800}.keyword-value{display:block;margin-top:4px;color:var(--ink);font-size:23px;line-height:1.25}.keyword-fallback{display:block;margin-top:5px;color:#4f678b;font-size:11px}.handoff-guide,.search-preview{margin-top:12px;padding:12px;border-radius:13px;background:#fff8dc}.handoff-guide strong{display:block;color:#6c4a00;font-size:12px}.handoff-guide p,.preview-location{margin:5px 0 0!important;color:#765f2d;font-size:11px}.sheet-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}.sheet-action{min-height:44px;padding:9px 12px;border:1px solid #d9e7f2;border-radius:11px;color:var(--ink);background:#fff;font-size:12px;font-weight:900;cursor:pointer}.sheet-action.primary{border-color:#e5bd32;background:#ffd54a}.preview-label{margin:0 0 8px!important;color:#7b5a08;font-size:10px;font-weight:900}.preview-search{min-height:40px;padding:10px 12px;border:1px solid #d9e7f2;border-radius:10px;color:var(--ink);background:#fff;font-weight:800}.feedback-field{display:block;margin-top:13px;color:var(--ink);font-size:12px;font-weight:900}.feedback-field select,.feedback-field textarea{width:100%;margin-top:6px;padding:11px 12px;border:1px solid #cfdfea;border-radius:11px;color:#263c5f;background:#fff;font:inherit;font-weight:500}.feedback-field textarea{min-height:88px;resize:vertical}.feedback-preview{margin-top:13px;padding:12px;border-radius:12px;background:#eff8fd;color:#486987;font-size:11px;white-space:pre-wrap}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
     </style>
-  <meta name="application-version" content="q5-mobile-art">
-  <link rel="preload" href="assets/reference-art.png" as="image">
+  <meta name="application-version" content="q6-hd-art">
+  <link rel="preload" href="assets/header-hd.png" as="image" fetchpriority="high">
   <link rel="stylesheet" href="assets/fonts/meal-sans.css">
-  <link rel="stylesheet" href="design.css?v=q5-mobile-art">
+  <link rel="stylesheet" href="design.css?v=q6-hd-art">
 </head>
 <body>
   <div class="phone-shell"><main class="app">
@@ -121,49 +121,17 @@
     }
     new MutationObserver(framePhoto).observe(e.photo,{attributes:true,attributeFilter:['src']});
     framePhoto();
-    // Approved raster artwork stays byte-identical. SVG viewports display only
-    // fixed decoration; native headings/buttons remain the accessible fallback.
-    const artSource='assets/reference-art.png';
-    function artRegion(target,box,className='reference-art'){
-      const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
-      svg.setAttribute('viewBox',box);svg.setAttribute('aria-hidden','true');
-      svg.setAttribute('focusable','false');svg.setAttribute('class',className);
-      const image=document.createElementNS('http://www.w3.org/2000/svg','image');
-      image.setAttribute('href',artSource);image.setAttribute('width','853');image.setAttribute('height','1844');
-      const [x,y,width,height]=box.split(' ');const clipId='art-clip-'+document.querySelectorAll('.reference-art').length;
-      const clip=document.createElementNS('http://www.w3.org/2000/svg','clipPath');clip.id=clipId;
-      const rect=document.createElementNS('http://www.w3.org/2000/svg','rect');
-      for(const [key,value] of Object.entries({x,y,width,height}))rect.setAttribute(key,value);
-      clip.append(rect);svg.append(clip);image.setAttribute('clip-path',`url(#${clipId})`);
-      svg.append(image);target.append(svg);
+    // Independent high-density art. Never reuse mockup-board raster regions.
+    // Failure is isolated: one missing decorative asset cannot hide the controls.
+    function mountArt(target,src,className,readyClass){
+      const img=new Image();img.alt='';img.className=className;
+      img.decoding='async';img.draggable=false;
+      img.onload=async()=>{try{await img.decode()}catch{}target.classList.add(readyClass);document.documentElement.classList.add('art-ready')};
+      img.onerror=()=>{img.hidden=true;target.classList.add('art-unavailable')};
+      target.append(img);img.src=src;
     }
-    // Preserve the continuous approved header. Cover only its generated logo
-    // with the sampled sky surface; the original logo renders above this layer.
-    artRegion(document.querySelector('.hero'),'17 230 402 224','reference-art hero-reference');
-    const headerArt=document.querySelector('.hero-reference');
-    const sky=document.createElementNS('http://www.w3.org/2000/svg','linearGradient');sky.id='brand-sky';
-    for(const [offset,color] of [['0%','#f0f9fe'],['40%','#eff9fe'],['100%','#d4edfe']]){
-      const stop=document.createElementNS('http://www.w3.org/2000/svg','stop');stop.setAttribute('offset',offset);stop.setAttribute('stop-color',color);sky.append(stop);
-    }
-    const logoCover=document.createElementNS('http://www.w3.org/2000/svg','rect');
-    for(const [key,value] of Object.entries({x:'37',y:'245',width:'200',height:'52',fill:'url(#brand-sky)'}))logoCover.setAttribute(key,value);
-    headerArt.append(sky,logoCover);
-    artRegion(document.querySelector('.curation'),'40 468 154 32');
-    artRegion(document.querySelector('.waiting-scene'),'30 686 376 536');
-    const waitingArt=document.querySelector('.waiting-scene>.reference-art');
-    const fitWaitingArt=()=>{
-      const box=document.querySelector('.waiting-scene').clientHeight<300?'30 800 376 385':'30 686 376 536';
-      waitingArt.setAttribute('viewBox',box);
-      const rect=waitingArt.querySelector('clipPath rect');
-      box.split(' ').forEach((v,i)=>rect.setAttribute(['x','y','width','height'][i],v));
-    };
-    new ResizeObserver(fitWaitingArt).observe(document.querySelector('.waiting-scene'));fitWaitingArt();
-    [['takeout','37 1446 111 86'],['home','163 1446 111 86'],['snack','290 1446 111 86']].forEach(([mode,box])=>{
-      const button=document.querySelector(`.draw-button[data-mode="${mode}"]`);artRegion(button,box);
-      button.querySelector('.reference-art').setAttribute('preserveAspectRatio','xMidYMid slice');
-    });
-    const artwork=new Image();artwork.onload=()=>document.documentElement.classList.add('art-ready');
-    artwork.onerror=()=>document.documentElement.classList.add('art-unavailable');artwork.src=artSource;
+    mountArt(document.querySelector('.hero'),'assets/header-hd.png','hero-hd','header-ready');
+    mountArt(document.querySelector('.waiting-scene'),'assets/cards-hd.png','cards-hd','cards-ready');
     function setBusy(value){busy=value;document.querySelectorAll('.draw-button,.meal-tab').forEach(button=>button.disabled=value);e.stage.setAttribute('aria-busy',String(value))}
     async function draw(mode){
       if(busy||!guard())return;
