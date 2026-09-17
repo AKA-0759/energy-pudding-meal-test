@@ -5956,9 +5956,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/original-v2/snack-01-apple.jpg",
+      "photo": "assets/generated-v5/snack-002.webp",
       "photoSubject": "苹果",
-      "imageSource": "project-ai-original",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "fruit",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约95 kcal",
@@ -6050,9 +6050,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/original-v2/snack-02-orange.jpg",
+      "photo": "assets/generated-v5/snack-004.webp",
       "photoSubject": "橙子",
-      "imageSource": "project-ai-original",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "fruit",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约65 kcal",
@@ -6144,9 +6144,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/original-v2/snack-03-blueberry.jpg",
+      "photo": "assets/generated-v5/snack-006.webp",
       "photoSubject": "蓝莓",
-      "imageSource": "project-ai-original",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "fruit",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约80 kcal",
@@ -6238,9 +6238,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/original-v2/snack-04-banana.jpg",
+      "photo": "assets/generated-v5/snack-008.webp",
       "photoSubject": "香蕉",
-      "imageSource": "project-ai-original",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "fruit",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约90 kcal",
@@ -6332,9 +6332,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/original-v2/snack-05-tomato.jpg",
+      "photo": "assets/generated-v5/snack-010.webp",
       "photoSubject": "圣女果",
-      "imageSource": "project-ai-original",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "veg",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约50 kcal",
@@ -6426,9 +6426,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/original-v2/snack-06-veggie-sticks.jpg",
+      "photo": "assets/generated-v5/snack-012.webp",
       "photoSubject": "蔬菜条",
-      "imageSource": "project-ai-original",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "veg",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约70 kcal",
@@ -6520,9 +6520,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/original-v2/snack-07-corn.jpg",
+      "photo": "assets/generated-v5/snack-014.webp",
       "photoSubject": "甜玉米",
-      "imageSource": "project-ai-original",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "grain",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约80 kcal",
@@ -6614,9 +6614,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/original-v2/snack-08-sweet-potato.jpg",
+      "photo": "assets/generated-v5/snack-016.webp",
       "photoSubject": "蒸红薯",
-      "imageSource": "project-ai-original",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "grain",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约90 kcal",
@@ -6710,9 +6710,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/original-v2/snack-09-yogurt.jpg",
+      "photo": "assets/generated-v5/snack-018.webp",
       "photoSubject": "原味无糖酸奶",
-      "imageSource": "project-ai-original",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "milk"
       ],
@@ -6808,9 +6808,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/original-v2/snack-10-milk.jpg",
+      "photo": "assets/generated-v5/snack-020.webp",
       "photoSubject": "纯牛奶",
-      "imageSource": "project-ai-original",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "milk"
       ],
@@ -6906,9 +6906,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/original-v2/snack-11-soy-milk.jpg",
+      "photo": "assets/generated-v5/snack-022.webp",
       "photoSubject": "无糖豆浆",
-      "imageSource": "project-ai-original",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "soy"
       ],
@@ -7004,9 +7004,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/original-v2/snack-12-egg.jpg",
+      "photo": "assets/generated-v5/snack-024.webp",
       "photoSubject": "水煮鸡蛋",
-      "imageSource": "project-ai-original",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "egg"
       ],
@@ -7102,9 +7102,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/original-v2/snack-13-edamame.jpg",
+      "photo": "assets/generated-v5/snack-026.webp",
       "photoSubject": "水煮毛豆",
-      "imageSource": "project-ai-original",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "soy"
       ],
@@ -7200,9 +7200,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/original-v2/snack-14-nuts.jpg",
+      "photo": "assets/generated-v5/snack-028.webp",
       "photoSubject": "原味混合坚果",
-      "imageSource": "project-ai-original",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "nuts"
       ],
@@ -7296,9 +7296,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/original-v2/snack-15-dark-chocolate.jpg",
+      "photo": "assets/generated-v5/snack-030.webp",
       "photoSubject": "黑巧克力",
-      "imageSource": "project-ai-original",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "treat",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约60 kcal",
@@ -7390,9 +7390,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/original-v2/snack-16-popcorn.jpg",
+      "photo": "assets/generated-v5/snack-032.webp",
       "photoSubject": "原味爆米花",
-      "imageSource": "project-ai-original",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "grain",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约70 kcal",
@@ -7437,9 +7437,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/牛奶燕麦杯.webp",
+      "photo": "assets/generated-v5/snack-033.webp",
       "photoSubject": "牛奶燕麦杯",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "milk"
       ],
@@ -7486,9 +7486,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/牛奶燕麦杯.webp",
+      "photo": "assets/generated-v5/snack-034.webp",
       "photoSubject": "牛奶燕麦杯",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "milk"
       ],
@@ -7535,9 +7535,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/葱花鸡蛋饼.webp",
+      "photo": "assets/generated-v5/snack-035.webp",
       "photoSubject": "葱花鸡蛋饼",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "egg",
         "wheat"
@@ -7585,9 +7585,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/葱花鸡蛋饼.webp",
+      "photo": "assets/generated-v5/snack-036.webp",
       "photoSubject": "葱花鸡蛋饼",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "egg",
         "wheat"
@@ -7635,9 +7635,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/皮蛋瘦肉粥.webp",
+      "photo": "assets/generated-v5/snack-037.webp",
       "photoSubject": "皮蛋瘦肉粥",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "mini",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约70 kcal",
@@ -7682,9 +7682,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/皮蛋瘦肉粥.webp",
+      "photo": "assets/generated-v5/snack-038.webp",
       "photoSubject": "皮蛋瘦肉粥",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "mini",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约95 kcal",
@@ -7729,9 +7729,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/火腿芝士三明治.webp",
+      "photo": "assets/generated-v5/snack-039.webp",
       "photoSubject": "火腿芝士三明治",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "milk",
         "wheat"
@@ -7779,9 +7779,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/火腿芝士三明治.webp",
+      "photo": "assets/generated-v5/snack-040.webp",
       "photoSubject": "火腿芝士三明治",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "milk",
         "wheat"
@@ -7829,9 +7829,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/芒果酸奶杯.webp",
+      "photo": "assets/generated-v5/snack-041.webp",
       "photoSubject": "芒果酸奶杯",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "milk"
       ],
@@ -7878,9 +7878,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/芒果酸奶杯.webp",
+      "photo": "assets/generated-v5/snack-042.webp",
       "photoSubject": "芒果酸奶杯",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "milk"
       ],
@@ -7927,9 +7927,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/银耳雪梨羹.webp",
+      "photo": "assets/generated-v5/snack-043.webp",
       "photoSubject": "银耳雪梨羹",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "treat",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约60 kcal",
@@ -7974,9 +7974,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/银耳雪梨羹.webp",
+      "photo": "assets/generated-v5/snack-044.webp",
       "photoSubject": "银耳雪梨羹",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "treat",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约90 kcal",
@@ -8021,9 +8021,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/柠檬蜂蜜茶.webp",
+      "photo": "assets/generated-v5/snack-045.webp",
       "photoSubject": "柠檬蜂蜜茶",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "drink",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约45 kcal",
@@ -8068,9 +8068,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/柠檬蜂蜜茶.webp",
+      "photo": "assets/generated-v5/snack-046.webp",
       "photoSubject": "柠檬蜂蜜茶",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "drink",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约90 kcal",
@@ -8115,9 +8115,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/红糖冰粉.webp",
+      "photo": "assets/generated-v5/snack-047.webp",
       "photoSubject": "红糖冰粉",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "treat",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约60 kcal",
@@ -8162,9 +8162,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/红糖冰粉.webp",
+      "photo": "assets/generated-v5/snack-048.webp",
       "photoSubject": "红糖冰粉",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "treat",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约80 kcal",
@@ -8209,9 +8209,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/凉拌黄瓜.webp",
+      "photo": "assets/generated-v5/snack-049.webp",
       "photoSubject": "凉拌黄瓜",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "veg",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约35 kcal",
@@ -8256,9 +8256,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/凉拌黄瓜.webp",
+      "photo": "assets/generated-v5/snack-050.webp",
       "photoSubject": "凉拌黄瓜",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "veg",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约70 kcal",
@@ -8303,9 +8303,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/凉拌木耳.webp",
+      "photo": "assets/generated-v5/snack-051.webp",
       "photoSubject": "凉拌木耳",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "veg",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约40 kcal",
@@ -8350,9 +8350,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/凉拌木耳.webp",
+      "photo": "assets/generated-v5/snack-052.webp",
       "photoSubject": "凉拌木耳",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "veg",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约80 kcal",
@@ -8397,9 +8397,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/蒜蓉西兰花.webp",
+      "photo": "assets/generated-v5/snack-053.webp",
       "photoSubject": "蒜蓉西兰花",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "veg",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约40 kcal",
@@ -8444,9 +8444,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/蒜蓉西兰花.webp",
+      "photo": "assets/generated-v5/snack-054.webp",
       "photoSubject": "蒜蓉西兰花",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "veg",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约80 kcal",
@@ -8491,9 +8491,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/紫菜蛋花汤.webp",
+      "photo": "assets/generated-v5/snack-055.webp",
       "photoSubject": "紫菜蛋花汤",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "egg"
       ],
@@ -8540,9 +8540,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/紫菜蛋花汤.webp",
+      "photo": "assets/generated-v5/snack-056.webp",
       "photoSubject": "紫菜蛋花汤",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "egg"
       ],
@@ -8589,9 +8589,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/荷塘小炒.webp",
+      "photo": "assets/generated-v5/snack-057.webp",
       "photoSubject": "荷塘小炒",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "veg",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约50 kcal",
@@ -8636,9 +8636,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/荷塘小炒.webp",
+      "photo": "assets/generated-v5/snack-058.webp",
       "photoSubject": "荷塘小炒",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [],
       "ruleKey": "veg",
       "quickTip": "不饿不吃 · 每天最多1次 · 本次约90 kcal",
@@ -8683,9 +8683,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/肉末蒸蛋.webp",
+      "photo": "assets/generated-v5/snack-059.webp",
       "photoSubject": "肉末蒸蛋",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "egg"
       ],
@@ -8732,9 +8732,9 @@ window.MEAL_LIBRARY={
       "modes": [
         "snack"
       ],
-      "photo": "assets/author-approved-github/肉末蒸蛋.webp",
+      "photo": "assets/generated-v5/snack-060.webp",
       "photoSubject": "肉末蒸蛋",
-      "imageSource": "author-approved-github",
+      "imageSource": "ai-generated-v5",
       "allergens": [
         "egg"
       ],
