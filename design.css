@@ -30,8 +30,8 @@
 .result-paper{min-height:calc((100cqw - 28px)*794/376 - 16px);height:100%;position:relative;padding:26cqw 12px 20px;display:flex;flex-direction:column;align-items:center;background:var(--tint);border-radius:12px}
 .result-ribbon{position:absolute;z-index:2;top:8cqw;left:0;width:100%;display:flex;align-items:center;justify-content:center;color:var(--accent-deep);font-family:Smiley,sans-serif;font-size:9.4cqw;font-weight:700;letter-spacing:.08em}
 .result-ribbon:before,.result-ribbon:after{content:'';width:7cqw;height:3px;border-radius:3px;background:#ffcf29;margin:0 5cqw;transform:rotate(53deg);box-shadow:0 14px 0 -0.3px #ffcf29}.result-ribbon:after{transform:rotate(-53deg)}
-.result-photo-frame{width:calc(100% + 24px);height:77cqw;flex:0 0 auto;border:0;border-radius:0;overflow:visible;background:transparent;box-shadow:none;display:grid;place-items:center}
-.result-photo{display:block;width:100%;height:100%;object-fit:contain}.result-photo.is-product{object-fit:contain;background:transparent;padding:8px}
+.result-photo-frame{width:calc(100% + 24px);height:77cqw;flex:0 0 auto;border:0;border-radius:0;overflow:hidden;background:transparent;box-shadow:none;display:block}
+.result-photo{display:block;width:100%;height:100%;min-width:0;min-height:0;object-fit:contain}.result-photo.is-product{object-fit:contain;background:transparent;padding:8px}
 .result-photo-frame.is-trimmed{position:relative;width:min(calc(100% + 40px),calc(77cqw * var(--subject-aspect)));height:auto;aspect-ratio:var(--subject-aspect);overflow:hidden}
 .result-photo-frame.is-trimmed .result-photo{position:absolute;inset:0 auto auto 0;width:var(--image-width);height:var(--image-height);max-width:none;object-fit:fill;padding:0;transform:translate(var(--image-x),var(--image-y));transform-origin:0 0}
 /* These two existing contact sheets retain their scoped crop correction. */
@@ -59,13 +59,13 @@
 /* Q5: approved fixed artwork + viewport-height-aware, mobile-first layout.
    Content is never rasterised: food names, nutrition, advice and controls stay semantic. */
 :root{font-family:MealSans,'Microsoft YaHei','PingFang SC',sans-serif;font-synthesis:none}
-.phone-shell{--hero-h:clamp(134px,23svh,56.28cqw);--curation-h:40px;--tabs-h:82px;--draw-h:clamp(60px,8svh,80px);--outer-gap:42px;--waiting-h:clamp(220px,calc(100svh - var(--hero-h) - var(--curation-h) - var(--tabs-h) - var(--draw-h) - var(--outer-gap) - env(safe-area-inset-top) - env(safe-area-inset-bottom)),610px)}
+.phone-shell{--hero-h:calc((100cqw - 8px)*941/1672 + 24px);--curation-h:40px;--tabs-h:82px;--draw-h:clamp(60px,8svh,80px);--outer-gap:42px;--waiting-h:clamp(160px,calc(100svh - var(--hero-h) - var(--curation-h) - var(--tabs-h) - var(--draw-h) - var(--outer-gap) - env(safe-area-inset-top) - env(safe-area-inset-bottom)),610px)}
 .app{padding-top:env(safe-area-inset-top);padding-bottom:max(8px,env(safe-area-inset-bottom))}
 .hero{height:var(--hero-h);padding:12px 20px 0;background:#e3f5ff}
 .reference-art{display:none;pointer-events:none;overflow:hidden}
 .art-ready .reference-art{display:block}
 .hero-reference{position:absolute;left:0;bottom:0;width:100%;height:100%}
-.hero-wordmark{--art-w:100cqw;position:absolute;left:7%;top:11%;width:45.5%;grid-template-columns:13.2cqw 14.4cqw;grid-template-rows:repeat(2,5.28cqw)}
+.hero-wordmark{--art-w:100cqw;position:absolute;left:7%;top:calc(8px + (100cqw - 8px)*.062);width:45.5%;grid-template-columns:13.2cqw 14.4cqw;grid-template-rows:repeat(2,5.28cqw)}
 .hero-wordmark svg{height:calc(var(--art-w)*.0528)}.brand-prefix{width:calc(var(--art-w)*.132)}.brand-tail{width:calc(var(--art-w)*.144)}.brand-building{width:calc(var(--art-w)*.3222)}
 .header-ready .hero-copy,.header-ready .hero-photo,.header-ready .spark{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;clip-path:inset(50%);overflow:hidden!important;white-space:nowrap}
 .curation{height:var(--curation-h);padding:0 20px;position:relative}
@@ -94,7 +94,7 @@
 .result-ribbon:before,.result-ribbon:after{width:20px;margin:0 20px}
 .result-photo-frame{width:calc(100% + 12px);height:min(62cqw,250px)}
 .result-photo-frame.is-trimmed{width:min(calc(100% + 12px),calc(min(62cqw,250px)*var(--subject-aspect)));height:auto}
-.result-title{font-family:MealSans,sans-serif;font-size:clamp(28px,8.8cqw,38px);font-weight:900;margin:6px 0 15px;line-height:1.3}
+.result-title{font-family:MealSans,sans-serif;font-size:clamp(28px,8.8cqw,38px);font-weight:900;margin:16px 0 15px;line-height:1.3}
 .result-title.is-long{font-size:24px;line-height:1.45}
 .result-variant{font-size:14px;white-space:normal}
 .kcal-badge{padding:10px 7px;margin-bottom:14px;gap:8px}
@@ -113,7 +113,7 @@
 
 /* Q6: native-density header, transparent card group, edge-to-edge stage.
    The background and foreground have independent aspect ratios, never letterbox. */
-.hero-hd{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;pointer-events:none}
+.hero-hd{position:absolute;inset:8px 0 auto;width:100%;height:auto;aspect-ratio:1672/941;object-fit:contain;pointer-events:none}
 .hero-wordmark{z-index:4}
 .waiting-scene{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 0 64px;background:radial-gradient(ellipse at 50% 42%,#f1ffffc0,transparent 65%),repeating-conic-gradient(from 0deg at 50% 65%,#ffffff14 0deg 12deg,transparent 12deg 26deg),linear-gradient(145deg,#b9f3ed,#a6edf0);box-shadow:inset 0 2px 8px #53b7c515}
 .waiting-title{visibility:visible;top:32px;left:50%;font-family:MealSans,sans-serif;font-weight:700;font-size:clamp(19px,5.4cqw,23px);letter-spacing:.045em;transform:translate(-50%,-50%);color:#0754bb}
